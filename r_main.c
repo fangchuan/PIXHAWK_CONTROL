@@ -75,9 +75,11 @@ void main(void)
 {
     R_MAIN_UserInit();
     /* Start user code. Do not edit comment generated here */
-	
+	delay_nms(15000);
+	unlock_pixhawk();
     while (1U)
     {
+		test_task_1();
 		//0.1s decode euler angle
 		if(cal_angle_10HZ)
 		{

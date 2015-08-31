@@ -153,6 +153,11 @@ __interrupt static void r_tau0_channel6_interrupt(void)
     }
 
     /* Start user code. Do not edit comment generated here */
+	if(g_tau0_ch6_width > 1300)
+	{
+		stop_motor();
+		lock_pixhawk();
+	}
     /* End user code. Do not edit comment generated here */
 }
 

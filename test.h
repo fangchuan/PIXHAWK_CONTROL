@@ -4,7 +4,7 @@
 #include "r_cg_macrodriver.h"
 #include "pix_control.h"
 
-#define  TARGET_HEIGHT  50
+#define  TARGET_HEIGHT  0.5
 
 void   test_task_1(void);
 

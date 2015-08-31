@@ -5,20 +5,18 @@ extern   float Yaw;
 
 void   test_task_1(void)
 {
-	   if(current_height < TARGET_HEIGHT-10)
+	   alt_hold_mode();
+	   if(current_height < TARGET_HEIGHT-0.1)
 	   {
-		   alt_hold_mode();
 		   climb_up();
 	   }
 	   else
-	       if(current_height >TARGET_HEIGHT)
+	       if(current_height >TARGET_HEIGHT+0.1)
 		   {
-			   alt_hold_mode();
 		       climb_down();
 		   }
 		   else
 		   {
-			   alt_hold_mode();
 			   climb_stop();
 		   }
 }

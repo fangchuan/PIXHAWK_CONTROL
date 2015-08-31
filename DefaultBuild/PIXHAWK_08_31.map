@@ -4,9 +4,9 @@
 78K0R Linker W1.70                            Date:31 Aug 2015 Page:   1
 
 Command:   -yF:\Ruisa_CubeSuit\CubeSuite+\Device\RL78\Devicefile -_msgof
-           f -oDefaultBuild\PIXHAWK_08_30.lmf -gi00000000000000000000h -
+           f -oDefaultBuild\PIXHAWK_08_31.lmf -gi00000000000000000000h -
            go84h,0FE00h,512 -gb0EFFFE8H -mi0 -s -pDefaultBuild\PIXHAWK_0
-           8_30.map F:\Ruisa_CubeSuit\CubeSuite+\CA78K0R\V1.60\lib78k0r\
+           8_31.map F:\Ruisa_CubeSuit\CubeSuite+\CA78K0R\V1.60\lib78k0r\
            s0rll.rel DefaultBuild\r_main.rel DefaultBuild\r_systeminit.r
            el DefaultBuild\r_cg_cgc.rel DefaultBuild\r_cg_cgc_user.rel D
            efaultBuild\r_cg_port.rel DefaultBuild\r_cg_port_user.rel Def
@@ -16,20 +16,20 @@ Command:   -yF:\Ruisa_CubeSuit\CubeSuite+\Device\RL78\Devicefile -_msgof
            \r_cg_timer.rel DefaultBuild\r_cg_timer_user.rel DefaultBuild
            \pix_control.rel DefaultBuild\task_test.rel DefaultBuild\r_ca
            mera.rel DefaultBuild\r_cg_intc.rel DefaultBuild\r_cg_intc_us
-           er.rel -bcl0ram.lib -bcl0rm.lib -bcl0rmf.lib -iF:\Ruisa_CubeS
-           uit\CubeSuite+\CA78K0R\V1.60\lib78k0r
+           er.rel DefaultBuild\task.rel -bcl0ram.lib -bcl0rm.lib -bcl0rm
+           f.lib -iF:\Ruisa_CubeSuit\CubeSuite+\CA78K0R\V1.60\lib78k0r
 Para-file:
-Out-file:  DefaultBuild\PIXHAWK_08_30.lmf
-Map-file:  DefaultBuild\PIXHAWK_08_30.map
+Out-file:  DefaultBuild\PIXHAWK_08_31.lmf
+Map-file:  DefaultBuild\PIXHAWK_08_31.map
 Direc-file:
 Directive:
 
 
 *** Link information ***
 
-    53 output segment(s)
- 1D66H byte(s) real data
-  1491 symbol(s) defined
+    54 output segment(s)
+ 1E70H byte(s) real data
+  1612 symbol(s) defined
 
 
 *** Memory map ***
@@ -97,6 +97,8 @@ Directive:
          @@CNSTL                      00002H    00000H  CSEG PAGE64KP
                   @@CNSTL  r_cg_intc_user
                                       00002H    00000H
+         @@CNSTL                      00002H    00000H  CSEG PAGE64KP
+                  @@CNSTL  task       00002H    00000H
          @@RLINIT                     00002H    00000H  CSEG UNIT64KP
                   @@RLINIT @cstart    00002H    00000H
                   @@RLINIT r_main     00002H    00000H
@@ -132,6 +134,7 @@ Directive:
                                       00002H    00000H
                   @@RLINIT r_cg_intc_user
                                       00002H    00000H
+                  @@RLINIT task       00002H    00000H
                   @@RLINIT @rom       00002H    00000H
          @@R_INIS                     00002H    00000H  CSEG UNIT64KP
                   @@R_INIS @cstart    00002H    00000H
@@ -168,6 +171,7 @@ Directive:
                                       00002H    00000H
                   @@R_INIS r_cg_intc_user
                                       00002H    00000H
+                  @@R_INIS task       00002H    00000H
                   @@R_INIS @rom       00002H    00000H
          @@CALT                       00002H    00000H  CSEG
                   @@CALT   @cstart    00002H    00000H
@@ -204,6 +208,7 @@ Directive:
                                       00002H    00000H
                   @@CALT   r_cg_intc_user
                                       00002H    00000H
+                  @@CALT   task       00002H    00000H
          ??NMIROM                     00002H    00002H  CSEG
 * gap *                               00004H    0001AH
          @@VECT1E                     0001EH    00004H  CSEG AT
@@ -267,6 +272,7 @@ Directive:
                                       00084H    00000H
                   @@R_INIT r_cg_intc_user
                                       00084H    00000H
+                  @@R_INIT task       00084H    00000H
                   @@R_INIT @rom       00084H    00000H
 * gap *                               00084H    0003CH
          ?CSEGOB0                     000C0H    00004H  CSEG OPT_BYTE
@@ -304,97 +310,101 @@ Directive:
                                       000C4H    00000H
                   @@CODE   r_cg_intc_user
                                       000C4H    00000H
+                  @@CODE   task       000C4H    00000H
          ?CSEGSI                      000C4H    0000AH  CSEG
          ?OCDSTAD                     000CEH    0000AH  CSEG
-         @@LCODE                      000D8H    003EAH  CSEG BASE
+         @@LCODE                      000D8H    003F6H  CSEG BASE
                   @@LCODE  @cstart    000D8H    000ADH
                   @@LCODE  m_fmul     00185H    0012BH
                   @@LCODE  @ladd      002B0H    0000FH
-                  @@LCODE  m_fcom1    002BFH    000CFH
-                  @@LCODE  m_fcom5    0038EH    0002AH
-                  @@LCODE  m_fcom6    003B8H    0001FH
-                  @@LCODE  m_fcmp     003D7H    00073H
-                  @@LCODE  m_ftols    0044AH    00078H
-         @@BASE                       004C2H    0027DH  CSEG BASE
-                  @@BASE   r_main     004C2H    00000H
+                  @@LCODE  @iscmp     002BFH    0000CH
+                  @@LCODE  m_fcom1    002CBH    000CFH
+                  @@LCODE  m_fcom5    0039AH    0002AH
+                  @@LCODE  m_fcom6    003C4H    0001FH
+                  @@LCODE  m_fcmp     003E3H    00073H
+                  @@LCODE  m_ftols    00456H    00078H
+         @@BASE                       004CEH    0027DH  CSEG BASE
+                  @@BASE   r_main     004CEH    00000H
                   @@BASE   r_systeminit
-                                      004C2H    00000H
-                  @@BASE   r_cg_cgc   004C2H    00000H
+                                      004CEH    00000H
+                  @@BASE   r_cg_cgc   004CEH    00000H
                   @@BASE   r_cg_cgc_user
-                                      004C2H    00000H
+                                      004CEH    00000H
                   @@BASE   r_cg_port
-                                      004C2H    00000H
+                                      004CEH    00000H
                   @@BASE   r_cg_port_user
-                                      004C2H    00000H
+                                      004CEH    00000H
                   @@BASE   r_cg_serial
-                                      004C2H    00000H
+                                      004CEH    00000H
                   @@BASE   r_cg_serial_user
-                                      004C2H    0018AH
-                  @@BASE   r_cg_it    0064CH    00000H
+                                      004CEH    0018AH
+                  @@BASE   r_cg_it    00658H    00000H
                   @@BASE   r_cg_it_user
-                                      0064CH    00069H
+                                      00658H    00069H
                   @@BASE   mavlink_recieve
-                                      006B5H    00000H
-                  @@BASE   delay      006B5H    00000H
+                                      006C1H    00000H
+                  @@BASE   delay      006C1H    00000H
                   @@BASE   r_cg_timer
-                                      006B5H    00000H
+                                      006C1H    00000H
                   @@BASE   r_cg_timer_user
-                                      006B5H    00084H
+                                      006C1H    00084H
                   @@BASE   pix_control
-                                      00739H    00000H
+                                      00745H    00000H
                   @@BASE   task_test
-                                      00739H    00000H
-                  @@BASE   r_camera   00739H    00000H
+                                      00745H    00000H
+                  @@BASE   r_camera   00745H    00000H
                   @@BASE   r_cg_intc
-                                      00739H    00000H
+                                      00745H    00000H
                   @@BASE   r_cg_intc_user
-                                      00739H    00006H
-* gap *                               0073FH    00001H
-         @@CNSTL                      00740H    000CEH  CSEG PAGE64KP
-                  @@CNSTL  m_fcom5    00740H    000CEH
-         @@CODEL                      0080EH    00EA4H  CSEG
-                  @@CODEL  r_main     0080EH    00060H
+                                      00745H    00006H
+                  @@BASE   task       0074BH    00000H
+* gap *                               0074BH    00001H
+         @@CNSTL                      0074CH    000CEH  CSEG PAGE64KP
+                  @@CNSTL  m_fcom5    0074CH    000CEH
+         @@CODEL                      0081AH    00FA2H  CSEG
+                  @@CODEL  r_main     0081AH    00060H
                   @@CODEL  r_systeminit
-                                      0086EH    00032H
-                  @@CODEL  r_cg_cgc   008A0H    00017H
+                                      0087AH    00032H
+                  @@CODEL  r_cg_cgc   008ACH    00017H
                   @@CODEL  r_cg_cgc_user
-                                      008B7H    00005H
+                                      008C3H    00005H
                   @@CODEL  r_cg_port
-                                      008BCH    00017H
+                                      008C8H    00017H
                   @@CODEL  r_cg_port_user
-                                      008D3H    00000H
+                                      008DFH    00000H
                   @@CODEL  r_cg_serial
-                                      008D3H    00370H
+                                      008DFH    00370H
                   @@CODEL  r_cg_serial_user
-                                      00C43H    000C3H
-                  @@CODEL  r_cg_it    00D06H    00032H
+                                      00C4FH    000C3H
+                  @@CODEL  r_cg_it    00D12H    00032H
                   @@CODEL  r_cg_it_user
-                                      00D38H    00007H
+                                      00D44H    00007H
                   @@CODEL  mavlink_recieve
-                                      00D3FH    000F4H
-                  @@CODEL  delay      00E33H    00086H
+                                      00D4BH    000F4H
+                  @@CODEL  delay      00E3FH    00086H
                   @@CODEL  r_cg_timer
-                                      00EB9H    0029AH
+                                      00EC5H    0029AH
                   @@CODEL  r_cg_timer_user
-                                      01153H    00000H
+                                      0115FH    00000H
                   @@CODEL  pix_control
-                                      01153H    00054H
+                                      0115FH    00054H
                   @@CODEL  task_test
-                                      011A7H    0003EH
-                  @@CODEL  r_camera   011E5H    00401H
+                                      011B3H    0003EH
+                  @@CODEL  r_camera   011F1H    00401H
                   @@CODEL  r_cg_intc
-                                      015E6H    000CCH
+                                      015F2H    000CCH
                   @@CODEL  r_cg_intc_user
-                                      016B2H    00000H
-         @@LCODEL                     016B2H    00507H  CSEG
-                  @@LCODEL @stkinit   016B2H    00044H
+                                      016BEH    00000H
+                  @@CODEL  task       016BEH    000FEH
+         @@LCODEL                     017BCH    00507H  CSEG
+                  @@LCODEL @stkinit   017BCH    00044H
                   @@LCODEL sprintf_n
-                                      016F6H    0046AH
-                  @@LCODEL exit       01B60H    0001CH
-                  @@LCODEL memcpy_n   01B7CH    0001AH
-                  @@LCODEL memset_n   01B96H    00019H
-                  @@LCODEL strlen_n   01BAFH    0000AH
-* gap *                               01BB9H    00447H
+                                      01800H    0046AH
+                  @@LCODEL exit       01C6AH    0001CH
+                  @@LCODEL memcpy_n   01C86H    0001AH
+                  @@LCODEL memset_n   01CA0H    00019H
+                  @@LCODEL strlen_n   01CB9H    0000AH
+* gap *                               01CC3H    0033DH
          @@CNST                       02000H    00020H  CSEG MIRRORP
                   @@CNST   @cstart    02000H    00000H
                   @@CNST   r_main     02000H    00000H
@@ -430,6 +440,7 @@ Directive:
                                       02020H    00000H
                   @@CNST   r_cg_intc_user
                                       02020H    00000H
+                  @@CNST   task       02020H    00000H
 * gap *                               02020H    0DDE0H
          ??OCDROM                     0FE00H    00200H  CSEG
 
@@ -437,7 +448,7 @@ Directive:
   BASE ADDRESS=FEF00H   SIZE=01100H
          OUTPUT   INPUT    INPUT      BASE      SIZE
          SEGMENT  SEGMENT  MODULE     ADDRESS
-         @@DATA                       FEF00H    001A2H  DSEG BASEP
+         @@DATA                       FEF00H    00476H  DSEG BASEP
                   @@DATA   @cstart    FEF00H    000BAH
                   @@DATA   r_main     FEFBAH    00000H
                   @@DATA   r_systeminit
@@ -472,223 +483,230 @@ Directive:
                                       FF0A2H    00000H
                   @@DATA   r_cg_intc_user
                                       FF0A2H    00000H
-                  @@DATA   @rom       FF0A2H    00000H
-         @@INIT                       FF0A2H    0002EH  DSEG BASEP
-                  @@INIT   @cstart    FF0A2H    00000H
-                  @@INIT   r_main     FF0A2H    00000H
+                  @@DATA   task       FF0A2H    002D4H
+                  @@DATA   @rom       FF376H    00000H
+         @@INIT                       FF376H    0002EH  DSEG BASEP
+                  @@INIT   @cstart    FF376H    00000H
+                  @@INIT   r_main     FF376H    00000H
                   @@INIT   r_systeminit
-                                      FF0A2H    00000H
-                  @@INIT   r_cg_cgc   FF0A2H    00000H
+                                      FF376H    00000H
+                  @@INIT   r_cg_cgc   FF376H    00000H
                   @@INIT   r_cg_cgc_user
-                                      FF0A2H    00000H
+                                      FF376H    00000H
                   @@INIT   r_cg_port
-                                      FF0A2H    00000H
+                                      FF376H    00000H
                   @@INIT   r_cg_port_user
-                                      FF0A2H    00000H
+                                      FF376H    00000H
                   @@INIT   r_cg_serial
-                                      FF0A2H    00000H
+                                      FF376H    00000H
                   @@INIT   r_cg_serial_user
-                                      FF0A2H    00006H
-                  @@INIT   r_cg_it    FF0A8H    00000H
+                                      FF376H    00006H
+                  @@INIT   r_cg_it    FF37CH    00000H
                   @@INIT   r_cg_it_user
-                                      FF0A8H    0000CH
+                                      FF37CH    0000CH
                   @@INIT   mavlink_recieve
-                                      FF0B4H    00000H
-                  @@INIT   delay      FF0B4H    00000H
+                                      FF388H    00000H
+                  @@INIT   delay      FF388H    00000H
                   @@INIT   r_cg_timer
-                                      FF0B4H    00000H
+                                      FF388H    00000H
                   @@INIT   r_cg_timer_user
-                                      FF0B4H    00004H
+                                      FF388H    00004H
                   @@INIT   pix_control
-                                      FF0B8H    00000H
+                                      FF38CH    00000H
                   @@INIT   task_test
-                                      FF0B8H    00000H
-                  @@INIT   r_camera   FF0B8H    00018H
+                                      FF38CH    00000H
+                  @@INIT   r_camera   FF38CH    00018H
                   @@INIT   r_cg_intc
-                                      FF0D0H    00000H
+                                      FF3A4H    00000H
                   @@INIT   r_cg_intc_user
-                                      FF0D0H    00000H
-                  @@INIT   @rom       FF0D0H    00000H
-         @@INIS                       FF0D0H    00000H  DSEG UNITP
-                  @@INIS   @cstart    FF0D0H    00000H
-                  @@INIS   r_main     FF0D0H    00000H
+                                      FF3A4H    00000H
+                  @@INIT   task       FF3A4H    00000H
+                  @@INIT   @rom       FF3A4H    00000H
+         @@INIS                       FF3A4H    00000H  DSEG UNITP
+                  @@INIS   @cstart    FF3A4H    00000H
+                  @@INIS   r_main     FF3A4H    00000H
                   @@INIS   r_systeminit
-                                      FF0D0H    00000H
-                  @@INIS   r_cg_cgc   FF0D0H    00000H
+                                      FF3A4H    00000H
+                  @@INIS   r_cg_cgc   FF3A4H    00000H
                   @@INIS   r_cg_cgc_user
-                                      FF0D0H    00000H
+                                      FF3A4H    00000H
                   @@INIS   r_cg_port
-                                      FF0D0H    00000H
+                                      FF3A4H    00000H
                   @@INIS   r_cg_port_user
-                                      FF0D0H    00000H
+                                      FF3A4H    00000H
                   @@INIS   r_cg_serial
-                                      FF0D0H    00000H
+                                      FF3A4H    00000H
                   @@INIS   r_cg_serial_user
-                                      FF0D0H    00000H
-                  @@INIS   r_cg_it    FF0D0H    00000H
+                                      FF3A4H    00000H
+                  @@INIS   r_cg_it    FF3A4H    00000H
                   @@INIS   r_cg_it_user
-                                      FF0D0H    00000H
+                                      FF3A4H    00000H
                   @@INIS   mavlink_recieve
-                                      FF0D0H    00000H
-                  @@INIS   delay      FF0D0H    00000H
+                                      FF3A4H    00000H
+                  @@INIS   delay      FF3A4H    00000H
                   @@INIS   r_cg_timer
-                                      FF0D0H    00000H
+                                      FF3A4H    00000H
                   @@INIS   r_cg_timer_user
-                                      FF0D0H    00000H
+                                      FF3A4H    00000H
                   @@INIS   pix_control
-                                      FF0D0H    00000H
+                                      FF3A4H    00000H
                   @@INIS   task_test
-                                      FF0D0H    00000H
-                  @@INIS   r_camera   FF0D0H    00000H
+                                      FF3A4H    00000H
+                  @@INIS   r_camera   FF3A4H    00000H
                   @@INIS   r_cg_intc
-                                      FF0D0H    00000H
+                                      FF3A4H    00000H
                   @@INIS   r_cg_intc_user
-                                      FF0D0H    00000H
-                  @@INIS   @rom       FF0D0H    00000H
-         @@DATS                       FF0D0H    00000H  DSEG UNITP
-                  @@DATS   @cstart    FF0D0H    00000H
-                  @@DATS   r_main     FF0D0H    00000H
+                                      FF3A4H    00000H
+                  @@INIS   task       FF3A4H    00000H
+                  @@INIS   @rom       FF3A4H    00000H
+         @@DATS                       FF3A4H    00000H  DSEG UNITP
+                  @@DATS   @cstart    FF3A4H    00000H
+                  @@DATS   r_main     FF3A4H    00000H
                   @@DATS   r_systeminit
-                                      FF0D0H    00000H
-                  @@DATS   r_cg_cgc   FF0D0H    00000H
+                                      FF3A4H    00000H
+                  @@DATS   r_cg_cgc   FF3A4H    00000H
                   @@DATS   r_cg_cgc_user
-                                      FF0D0H    00000H
+                                      FF3A4H    00000H
                   @@DATS   r_cg_port
-                                      FF0D0H    00000H
+                                      FF3A4H    00000H
                   @@DATS   r_cg_port_user
-                                      FF0D0H    00000H
+                                      FF3A4H    00000H
                   @@DATS   r_cg_serial
-                                      FF0D0H    00000H
+                                      FF3A4H    00000H
                   @@DATS   r_cg_serial_user
-                                      FF0D0H    00000H
-                  @@DATS   r_cg_it    FF0D0H    00000H
+                                      FF3A4H    00000H
+                  @@DATS   r_cg_it    FF3A4H    00000H
                   @@DATS   r_cg_it_user
-                                      FF0D0H    00000H
+                                      FF3A4H    00000H
                   @@DATS   mavlink_recieve
-                                      FF0D0H    00000H
-                  @@DATS   delay      FF0D0H    00000H
+                                      FF3A4H    00000H
+                  @@DATS   delay      FF3A4H    00000H
                   @@DATS   r_cg_timer
-                                      FF0D0H    00000H
+                                      FF3A4H    00000H
                   @@DATS   r_cg_timer_user
-                                      FF0D0H    00000H
+                                      FF3A4H    00000H
                   @@DATS   pix_control
-                                      FF0D0H    00000H
+                                      FF3A4H    00000H
                   @@DATS   task_test
-                                      FF0D0H    00000H
-                  @@DATS   r_camera   FF0D0H    00000H
+                                      FF3A4H    00000H
+                  @@DATS   r_camera   FF3A4H    00000H
                   @@DATS   r_cg_intc
-                                      FF0D0H    00000H
+                                      FF3A4H    00000H
                   @@DATS   r_cg_intc_user
-                                      FF0D0H    00000H
-                  @@DATS   @rom       FF0D0H    00000H
-         @@INITL                      FF0D0H    00000H  DSEG UNIT64KP
-                  @@INITL  @cstart    FF0D0H    00000H
-                  @@INITL  r_main     FF0D0H    00000H
+                                      FF3A4H    00000H
+                  @@DATS   task       FF3A4H    00000H
+                  @@DATS   @rom       FF3A4H    00000H
+         @@INITL                      FF3A4H    00000H  DSEG UNIT64KP
+                  @@INITL  @cstart    FF3A4H    00000H
+                  @@INITL  r_main     FF3A4H    00000H
                   @@INITL  r_systeminit
-                                      FF0D0H    00000H
-                  @@INITL  r_cg_cgc   FF0D0H    00000H
+                                      FF3A4H    00000H
+                  @@INITL  r_cg_cgc   FF3A4H    00000H
                   @@INITL  r_cg_cgc_user
-                                      FF0D0H    00000H
+                                      FF3A4H    00000H
                   @@INITL  r_cg_port
-                                      FF0D0H    00000H
+                                      FF3A4H    00000H
                   @@INITL  r_cg_port_user
-                                      FF0D0H    00000H
+                                      FF3A4H    00000H
                   @@INITL  r_cg_serial
-                                      FF0D0H    00000H
+                                      FF3A4H    00000H
                   @@INITL  r_cg_serial_user
-                                      FF0D0H    00000H
-                  @@INITL  r_cg_it    FF0D0H    00000H
+                                      FF3A4H    00000H
+                  @@INITL  r_cg_it    FF3A4H    00000H
                   @@INITL  r_cg_it_user
-                                      FF0D0H    00000H
+                                      FF3A4H    00000H
                   @@INITL  mavlink_recieve
-                                      FF0D0H    00000H
-                  @@INITL  delay      FF0D0H    00000H
+                                      FF3A4H    00000H
+                  @@INITL  delay      FF3A4H    00000H
                   @@INITL  r_cg_timer
-                                      FF0D0H    00000H
+                                      FF3A4H    00000H
                   @@INITL  r_cg_timer_user
-                                      FF0D0H    00000H
+                                      FF3A4H    00000H
                   @@INITL  pix_control
-                                      FF0D0H    00000H
+                                      FF3A4H    00000H
                   @@INITL  task_test
-                                      FF0D0H    00000H
-                  @@INITL  r_camera   FF0D0H    00000H
+                                      FF3A4H    00000H
+                  @@INITL  r_camera   FF3A4H    00000H
                   @@INITL  r_cg_intc
-                                      FF0D0H    00000H
+                                      FF3A4H    00000H
                   @@INITL  r_cg_intc_user
-                                      FF0D0H    00000H
-                  @@INITL  @rom       FF0D0H    00000H
-         @@DATAL                      FF0D0H    00000H  DSEG UNIT64KP
-                  @@DATAL  @cstart    FF0D0H    00000H
-                  @@DATAL  r_main     FF0D0H    00000H
+                                      FF3A4H    00000H
+                  @@INITL  task       FF3A4H    00000H
+                  @@INITL  @rom       FF3A4H    00000H
+         @@DATAL                      FF3A4H    00000H  DSEG UNIT64KP
+                  @@DATAL  @cstart    FF3A4H    00000H
+                  @@DATAL  r_main     FF3A4H    00000H
                   @@DATAL  r_systeminit
-                                      FF0D0H    00000H
-                  @@DATAL  r_cg_cgc   FF0D0H    00000H
+                                      FF3A4H    00000H
+                  @@DATAL  r_cg_cgc   FF3A4H    00000H
                   @@DATAL  r_cg_cgc_user
-                                      FF0D0H    00000H
+                                      FF3A4H    00000H
                   @@DATAL  r_cg_port
-                                      FF0D0H    00000H
+                                      FF3A4H    00000H
                   @@DATAL  r_cg_port_user
-                                      FF0D0H    00000H
+                                      FF3A4H    00000H
                   @@DATAL  r_cg_serial
-                                      FF0D0H    00000H
+                                      FF3A4H    00000H
                   @@DATAL  r_cg_serial_user
-                                      FF0D0H    00000H
-                  @@DATAL  r_cg_it    FF0D0H    00000H
+                                      FF3A4H    00000H
+                  @@DATAL  r_cg_it    FF3A4H    00000H
                   @@DATAL  r_cg_it_user
-                                      FF0D0H    00000H
+                                      FF3A4H    00000H
                   @@DATAL  mavlink_recieve
-                                      FF0D0H    00000H
-                  @@DATAL  delay      FF0D0H    00000H
+                                      FF3A4H    00000H
+                  @@DATAL  delay      FF3A4H    00000H
                   @@DATAL  r_cg_timer
-                                      FF0D0H    00000H
+                                      FF3A4H    00000H
                   @@DATAL  r_cg_timer_user
-                                      FF0D0H    00000H
+                                      FF3A4H    00000H
                   @@DATAL  pix_control
-                                      FF0D0H    00000H
+                                      FF3A4H    00000H
                   @@DATAL  task_test
-                                      FF0D0H    00000H
-                  @@DATAL  r_camera   FF0D0H    00000H
+                                      FF3A4H    00000H
+                  @@DATAL  r_camera   FF3A4H    00000H
                   @@DATAL  r_cg_intc
-                                      FF0D0H    00000H
+                                      FF3A4H    00000H
                   @@DATAL  r_cg_intc_user
-                                      FF0D0H    00000H
-                  @@DATAL  @rom       FF0D0H    00000H
-         @@BITS                       FF0D0H    00000H  BSEG
-                  @@BITS   @cstart    FF0D0H.0  00000H.0
-                  @@BITS   r_main     FF0D0H.0  00000H.0
+                                      FF3A4H    00000H
+                  @@DATAL  task       FF3A4H    00000H
+                  @@DATAL  @rom       FF3A4H    00000H
+         @@BITS                       FF3A4H    00000H  BSEG
+                  @@BITS   @cstart    FF3A4H.0  00000H.0
+                  @@BITS   r_main     FF3A4H.0  00000H.0
                   @@BITS   r_systeminit
-                                      FF0D0H.0  00000H.0
-                  @@BITS   r_cg_cgc   FF0D0H.0  00000H.0
+                                      FF3A4H.0  00000H.0
+                  @@BITS   r_cg_cgc   FF3A4H.0  00000H.0
                   @@BITS   r_cg_cgc_user
-                                      FF0D0H.0  00000H.0
+                                      FF3A4H.0  00000H.0
                   @@BITS   r_cg_port
-                                      FF0D0H.0  00000H.0
+                                      FF3A4H.0  00000H.0
                   @@BITS   r_cg_port_user
-                                      FF0D0H.0  00000H.0
+                                      FF3A4H.0  00000H.0
                   @@BITS   r_cg_serial
-                                      FF0D0H.0  00000H.0
+                                      FF3A4H.0  00000H.0
                   @@BITS   r_cg_serial_user
-                                      FF0D0H.0  00000H.0
-                  @@BITS   r_cg_it    FF0D0H.0  00000H.0
+                                      FF3A4H.0  00000H.0
+                  @@BITS   r_cg_it    FF3A4H.0  00000H.0
                   @@BITS   r_cg_it_user
-                                      FF0D0H.0  00000H.0
+                                      FF3A4H.0  00000H.0
                   @@BITS   mavlink_recieve
-                                      FF0D0H.0  00000H.0
-                  @@BITS   delay      FF0D0H.0  00000H.0
+                                      FF3A4H.0  00000H.0
+                  @@BITS   delay      FF3A4H.0  00000H.0
                   @@BITS   r_cg_timer
-                                      FF0D0H.0  00000H.0
+                                      FF3A4H.0  00000H.0
                   @@BITS   r_cg_timer_user
-                                      FF0D0H.0  00000H.0
+                                      FF3A4H.0  00000H.0
                   @@BITS   pix_control
-                                      FF0D0H.0  00000H.0
+                                      FF3A4H.0  00000H.0
                   @@BITS   task_test
-                                      FF0D0H.0  00000H.0
-                  @@BITS   r_camera   FF0D0H.0  00000H.0
+                                      FF3A4H.0  00000H.0
+                  @@BITS   r_camera   FF3A4H.0  00000H.0
                   @@BITS   r_cg_intc
-                                      FF0D0H.0  00000H.0
+                                      FF3A4H.0  00000H.0
                   @@BITS   r_cg_intc_user
-                                      FF0D0H.0  00000H.0
-* gap *                               FF0D0H    00E04H
+                                      FF3A4H.0  00000H.0
+                  @@BITS   task       FF3A4H.0  00000H.0
+* gap *                               FF3A4H    00B30H
          @@SEGREG                     FFED4H    00004H  DSEG AT
                   @@SEGREG @SEGREG    FFED4H    00004H
          @@RTARG0                     FFED8H    00008H  DSEG AT
